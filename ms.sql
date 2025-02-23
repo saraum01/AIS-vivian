@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2024 at 06:08 PM
+-- Generation Time: Feb 23, 2025 at 09:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,23 @@ CREATE TABLE `food_products` (
 --
 
 INSERT INTO `food_products` (`id`, `name`, `description`, `price`, `image_url`) VALUES
-(1, 'panset', 'masarap kahit walang sahug', 299.00, 'https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0MTU4Mjc5MjI2ODkzODIw/recipe-for-pancit-sotanghon-the-slippy-and-yummy-philippine-glass-noodles.jpg');
+(1, 'panset', 'masarap kahit walang sahug', 299.00, 'https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0MTU4Mjc5MjI2ODkzODIw/recipe-for-pancit-sotanghon-the-slippy-and-yummy-philippine-glass-noodles.jpg'),
+(2, 'adobo', 'langhap sarap', 100.00, 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Adobo_DSCF4391.jpg'),
+(3, 'pork steak', 'sarap na puro laman', 150.00, 'https://panlasangpinoy.com/wp-content/uploads/2024/02/pork-chop-steak-recipe.jpg'),
+(4, 'carbonara', 'lami', 50.00, 'https://assets.bonappetit.com/photos/5a6f48f94f860a026c60fd71/1:1/w_2560%2Cc_limit/pasta-carbonara.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `intruders`
+--
+
+CREATE TABLE `intruders` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `attempt_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `attempt_count` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,10 +76,8 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `food_product_id`, `quantity`, `date_sold`) VALUES
-(1, 1, 1, '2024-11-04 00:59:39'),
-(2, 1, 1, '2024-11-04 01:00:44'),
-(3, 1, 1, '2024-11-04 01:02:14'),
-(4, 1, 1, '2024-11-04 01:07:44');
+(6, 1, 3, '2024-11-04 01:36:09'),
+(7, 1, 3, '2024-11-04 13:36:25');
 
 -- --------------------------------------------------------
 
@@ -97,6 +111,13 @@ ALTER TABLE `food_products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `intruders`
+--
+ALTER TABLE `intruders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `sales`
 --
 ALTER TABLE `sales`
@@ -118,13 +139,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `food_products`
 --
 ALTER TABLE `food_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `intruders`
+--
+ALTER TABLE `intruders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

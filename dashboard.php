@@ -144,6 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['new_product'])) {
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                <a class="nav-link" href="warning.php">Notificatuion</a>
                     <a class="nav-link" href="join.php">Join Data</a>
                 </li>
                 <li class="nav-item">
