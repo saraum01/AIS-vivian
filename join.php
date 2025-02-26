@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="navbar">
     <div class="navbar-logo">MyApp Logo</div>
     <div>
-    <a href="warning.php">Notificatuion</a>
+    
         <a href="dashboard.php">Home</a>
         <a href="logout.php">Logout</a>
     </div>

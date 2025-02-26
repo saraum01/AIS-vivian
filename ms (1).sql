@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2025 at 09:54 PM
+-- Generation Time: Feb 27, 2025 at 12:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `ms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_codes`
+--
+
+CREATE TABLE `admin_codes` (
+  `id` int(11) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_codes`
+--
+
+INSERT INTO `admin_codes` (`id`, `code`, `created_at`) VALUES
+(1, 'SM12PMDUTY', '2025-02-26 22:57:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_attempts`
+--
+
+CREATE TABLE `failed_attempts` (
+  `id` int(11) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `attempt_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `failed_attempts`
+--
+
+INSERT INTO `failed_attempts` (`id`, `ip_address`, `attempt_time`) VALUES
+(1, '::1', '2025-02-27 07:21:08');
 
 -- --------------------------------------------------------
 
@@ -98,11 +136,26 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`, `first_login`) VALUES
-(1, 'mariel', '$2y$10$rUHA8Y8WODiHS4eClRSkcO/3oy/c9lCYJjeaIa2grA4IpMI1z34my', '2024-11-04 00:55:35', 1);
+(1, 'mariel', '$2y$10$rUHA8Y8WODiHS4eClRSkcO/3oy/c9lCYJjeaIa2grA4IpMI1z34my', '2024-11-04 00:55:35', 1),
+(2, 'opop', '$2y$10$vD50j4ih4HDdyQIUUxVQ8eRImyNEOvKqm5rizWuUE1nlSBwZoP73K', '2025-02-24 04:57:51', 1),
+(3, 'joshuaopop', '$2y$10$MCuhEFwEqSfBMNHkWImRRuTZKtLRKow7NLAhJx4wRAccfBGKAPrgi', '2025-02-27 07:08:10', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_codes`
+--
+ALTER TABLE `admin_codes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_attempts`
+--
+ALTER TABLE `failed_attempts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ip_address` (`ip_address`);
 
 --
 -- Indexes for table `food_products`
@@ -136,6 +189,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_codes`
+--
+ALTER TABLE `admin_codes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `failed_attempts`
+--
+ALTER TABLE `failed_attempts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `food_products`
 --
 ALTER TABLE `food_products`
@@ -145,7 +210,7 @@ ALTER TABLE `food_products`
 -- AUTO_INCREMENT for table `intruders`
 --
 ALTER TABLE `intruders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -157,7 +222,7 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

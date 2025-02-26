@@ -115,55 +115,36 @@ function resetAttempts($pdo, $username) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
        body {
-            font: 14px sans-serif;
-            background-color: #000; /* Black background */
-            color: #dcdcdc; /* Light gray text */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height for centering */
-            margin: 0;
+            background-color: #1a1a2e;
+            color: #c084fc;
         }
         .wrapper {
-            width: 100%;
-            max-width: 400px; /* Set a max-width for the form */
-            padding: 30px; /* Increased padding for better spacing */
-            background-color: #1a1a1a; /* Dark gray background for the form */
+            width: 360px;
+            padding: 20px;
+            margin: auto;
+            margin-top: 100px;
+            background: #22223b;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
-        }
-        .form-control {
-            background-color: #121212; /* Darker input field */
-            color: #dcdcdc; /* Light text */
-            border: 1px solid #8e24aa; /* Purple border */
-        }
-        .form-control:focus {
-            background-color: #121212; /* Dark background on focus */
-            border-color: #ba68c8; /* Bright purple border on focus */
-            box-shadow: 0 0 5px rgba(186, 104, 200, 0.5); /* Purple glow effect on focus */
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.8);
         }
         .btn-primary {
-            background-color: #6a1b9a; /* Dark purple button */
-            border: none;
-            transition: background-color 0.3s; /* Smooth transition */
+            background-color: #7b2cbf;
+            border-color: #7b2cbf;
         }
         .btn-primary:hover {
-            background-color: #8e24aa; /* Brighter purple on hover */
+            background-color: #5a189a;
+            border-color: #5a189a;
         }
-        .alert-danger {
-            background-color: #e57373; /* Softer red for error messages */
-            color: #fff; /* White text */
-            border-radius: 5px; /* Slight rounding of corners */
+        .navbar {
+            background-color: #10002b !important;
         }
-        a {
-            color: #ce93d8; /* Light purple link */
-        }
-        a:hover {
-            color: #ba68c8; /* Brighter purple on hover */
-        }
-    </style> 
+    </style>
 </head>
 <body>
+
+                <li class="nav-item"><a class="btn btn-danger" href="admin.php">Admin</a></li>
+          
+
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
